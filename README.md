@@ -1,3 +1,3 @@
-# Gradebook __NAME__
+# Actions
 
-> __DESCRIPTION__
+> GitHub Actions that power Gradebook

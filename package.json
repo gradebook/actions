@@ -1,10 +1,9 @@
 {
-  "name": "@gradebook/__NAME__",
+  "name": "@gradebook/actions",
   "version": "0.0.1",
-  "description": "___DESCRIPTION__",
   "main": "index.js",
   "alias": "gb",
-  "repository": "https://github.com/gradebook/__NAME__",
+  "repository": "https://github.com/gradebook/actions",
   "authors": [
     "Josh Costa <joshcosta38@tamu.edu>",
     "Vikas Potluri <vikaspotluri123.github@gmail.com>",
