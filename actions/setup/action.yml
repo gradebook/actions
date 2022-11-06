@@ -9,6 +9,10 @@ inputs:
     type: string
     required: false
     default: ''
+  git-fetch-depth:
+    type: number
+    required: false
+    default: 1 # Pulled from actions/checkout docs
 
 runs:
   using: composite
@@ -16,6 +20,7 @@ runs:
   - uses: actions/checkout@v2
     with:
       ref: ${{ inputs.git-ref }}
+      fetch-depth: ${{ inputs.git-fetch-depth }}
   - uses: actions/setup-node@v3
     with:
       node-version: ${{ inputs.node-version }}
