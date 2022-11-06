@@ -1,0 +1,30 @@
+# compiled output
+/out-tsc
+
+# dependencies
+node_modules/
+
+# IDEs and editors
+.project
+.classpath
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+
+# misc
+/coverage
+.nyc_output
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+config.*.json
+!config.example.json
+!config.testing.json
+logs/

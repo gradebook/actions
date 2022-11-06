@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "github>gradebook/renovate-config:faithful"
+  ]
+}

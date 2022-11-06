@@ -1,0 +1,16 @@
+name: Bootstrap Action
+
+inputs:
+  node-version:
+    type: string
+    required: false
+    default: lts/*
+
+runs:
+  using: composite
+  steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-node@v3
+    with:
+      node-version: ${{ inputs.node-version }}
+      cache: yarn
