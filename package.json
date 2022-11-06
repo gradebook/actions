@@ -9,11 +9,14 @@
     "Vikas Potluri <vikaspotluri123.github@gmail.com>",
     "Ramsay Smith <ramsaysmith@outlook.com>"
   ],
+  "type": "module",
   "private": true,
   "scripts": {
     "lint": "xo"
   },
-  "dependencies": {},
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
   "devDependencies": {
     "xo": "0.49.0"
   },
