@@ -37,13 +37,8 @@ function compareString(left, right) {
 	return -1;
 } */
 
-/**
- * @template T
- * @param {T[]} data
- * @param {keyof T} keyToSortBy
- * @returns {T[keyToSortBy] extends string ? Record<string, T[]> : never}
- */
-export function groupArrayByKey(data, keyToSortBy) {
+/** @type {import('../types.js').GroupedArrayByKeyFunction} */
+export const groupArrayByKey = (data, keyToSortBy) => {
 	const response = {};
 	for (const item of data) {
 		/** @type {string} */
@@ -56,4 +51,4 @@ export function groupArrayByKey(data, keyToSortBy) {
 
 	// @ts-expect-error
 	return response;
-}
+};

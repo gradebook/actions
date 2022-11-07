@@ -36,10 +36,13 @@ export type Action = {
 	jobs: Record<string, WorkflowJob>;
 };
 
+export type GroupedArrayByKeyFunction = <T extends Record<string, unknown>, U extends keyof T>(data: T[], sortKey: U) => T[U] extends string ? Record<string, T[]> : never;
+
 export type LintError = {
 	fileName: string;
 	repository: string;
 	remoteFileName: string;
 	ruleName: string;
 	error: string;
+	waived: boolean;
 };

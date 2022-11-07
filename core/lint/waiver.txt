@@ -1,0 +1,1 @@
+ruleName=Require Timeout&repository=gradebook/blog-theme

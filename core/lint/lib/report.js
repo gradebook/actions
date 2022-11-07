@@ -5,7 +5,8 @@ import {groupArrayByKey} from './group-by-key.js';
 /* eslint-disable no-console */
 /** @param {import('../types.js').LintError[]} unsortedErrors */
 export function report(unsortedErrors) {
-	const errors = groupArrayByKey([...unsortedErrors], 'repository');
+	const filteredErrors = unsortedErrors.filter(error => !error.waived);
+	const errors = groupArrayByKey(filteredErrors, 'repository');
 
 	for (const [repository, groupedErrors] of Object.entries(errors)) {
 		console.log(`${repository}:`);
@@ -17,7 +18,9 @@ export function report(unsortedErrors) {
 			for (const [ruleName, finalGroupedErrors] of Object.entries(errorsByRule)) {
 				console.log(`    ${ruleName}:`);
 				for (const error of finalGroupedErrors) {
-					console.log(`      ${error.error}`);
+					if (!error.waived) { // eslint-disable-line max-depth
+						console.log(`      ${error.error}`);
+					}
 				}
 			}
 		}
