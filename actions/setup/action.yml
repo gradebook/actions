@@ -13,6 +13,10 @@ inputs:
     type: number
     required: false
     default: 1 # Pulled from actions/checkout docs
+  git-fetch-tags:
+    type: boolean
+    required: false
+    default: false
 
 runs:
   using: composite
@@ -21,7 +25,7 @@ runs:
     with:
       ref: ${{ inputs.git-ref }}
       fetch-depth: ${{ inputs.git-fetch-depth }}
-      fetch-tags: true
+      fetch-tags: ${{ inputs.git-fetch-tags }}
       show-progress: false
   - uses: actions/setup-node@v3
     with:
