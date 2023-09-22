@@ -21,6 +21,8 @@ runs:
     with:
       ref: ${{ inputs.git-ref }}
       fetch-depth: ${{ inputs.git-fetch-depth }}
+      fetch-tags: true
+      show-progress: false
   - uses: actions/setup-node@v3
     with:
       node-version: ${{ inputs.node-version }}
