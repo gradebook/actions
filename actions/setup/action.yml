@@ -29,6 +29,7 @@ runs:
       show-progress: false
   - id: node_version
     name: Resolve node version
+    shell: bash
     run: |
       if [[ "{{ inputs.node-version }}" == "package_json" ]]; then
         echo "value=$(jq -r .engines.node package.json)" >> $GITHUB_OUTPUT
