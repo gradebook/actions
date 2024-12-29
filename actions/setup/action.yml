@@ -27,9 +27,17 @@ runs:
       fetch-depth: ${{ inputs.git-fetch-depth }}
       fetch-tags: ${{ inputs.git-fetch-tags }}
       show-progress: false
+  - id: node_version
+    name: Resolve node version
+    run: |
+      if [[ "{{ inputs.node-version }}" == "package_json" ]]; then
+        echo "value=$(jq -r .engines.node package.json)" >> $GITHUB_OUTPUT
+      else
+        echo "value={{ inputs.node-version }}" >> $GITHUB_OUTPUT
+      fi
   - uses: actions/setup-node@v4
     with:
-      node-version: ${{ inputs.node-version }}
+      node-version: ${{ steps.node_version.outputs.value }}
       cache: yarn
     env:
       FORCE_COLOR: 0
