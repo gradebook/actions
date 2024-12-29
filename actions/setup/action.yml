@@ -31,11 +31,13 @@ runs:
     name: Resolve node version
     shell: bash
     run: |
-      if [[ "{{ inputs.node-version }}" == "package_json" ]]; then
+      if [[ "$NODE_VERSION" == "package_json" ]]; then
         echo "value=$(jq -r .engines.node package.json)" >> $GITHUB_OUTPUT
       else
-        echo "value={{ inputs.node-version }}" >> $GITHUB_OUTPUT
+        echo "value=$NODE_VERSION" >> $GITHUB_OUTPUT
       fi
+    env:
+      NODE_VERSION: ${{ inputs.node-version }}
   - uses: actions/setup-node@v4
     with:
       node-version: ${{ steps.node_version.outputs.value }}
