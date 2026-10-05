@@ -5,6 +5,10 @@ inputs:
     type: string
     required: false
     default: lts/jod
+  package-manager:
+    type: string
+    required: false
+    default: yarn
   git-ref:
     type: string
     required: false
@@ -41,6 +45,6 @@ runs:
   - uses: actions/setup-node@v4
     with:
       node-version: ${{ steps.node_version.outputs.value }}
-      cache: yarn
+      cache: ${{ inputs.package-manager }}
     env:
       FORCE_COLOR: 0
